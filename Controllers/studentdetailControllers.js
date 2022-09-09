@@ -27,14 +27,15 @@ const studentdetailgetdata = async (req, res) => {
 
 const studentdetailpost = async (req,res) => {
   console.log("heloo");
-    // console.log("filename 222222",req.file);
+    console.log("filename 222222",req.file);
     try{
     let studentdetail = {
       name: req.body.name,
       age: req.body.age,
       mobile_number: req.body.mobile_number,
       address: req.body.address,
-      semester: req.body.semester
+      semester: req.body.semester,
+      student_image: req.file.filename  
 
     };
     console.log("studentdetail",studentdetail);

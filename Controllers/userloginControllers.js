@@ -28,7 +28,7 @@ const registerpost = async (req,res) => {
     // const validation =joi.validate(req.body, schema)
     // res.send(validation);
     console.log(req.body.email);
-    const sql1 = "SELECT * FROM register WHERE email ='"+req.body.email+"'";
+    const sql1 = `SELECT * FROM register WHERE email ='${req.body.email}'`;
     console.log("sql1,",sql1);
     MySQL.query(sql1,(err,emailExist)=>{
       if(err){

@@ -16,14 +16,20 @@ const MySQL = require('./Database/db');
 const app = express()
 const port = 3000
 var fs = require('fs');
+const path = require('path')
 // const authRoute = require('./routes/auth');
 // const authRoute = require('./routes/auth.js');
+
 const loginregister = require('./routes/loginRegister');
 const studentinformation = require('./routes/sudent');
 const courseinformation = require('./routes/course');
 const { join } = require('path');
 const { param } = require('./routes/loginRegister');
 // //middleware
+// app.use(express.static(__dirname + "/public"));
+app.use(express.static('uploads'))
+// console.log(path.join(__dirname , "uploads"))
+// app.use(express.static(path.join(__dirname , "uploads")));
 app.use(cookieParser());
 app.use(express.json());
 app.use(

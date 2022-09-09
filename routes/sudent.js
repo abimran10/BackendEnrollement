@@ -1,10 +1,11 @@
 const express = require('express');
 const router=express.Router();
 const auth = require('../middleware/verifytoken');
+const {userImageUpload} = require('../helper/userImage');
 const {studentdetailgetdata,studentdetailpost,studentdetaildeletedata,studentdetailidfind,studentdetailupdatedata} = require("../Controllers/studentdetailControllers");
 
   
-  router.post('/studentpost',auth,studentdetailpost);
+  router.post('/studentpost',userImageUpload.single('image'),auth,studentdetailpost);
 
   router.get('/studentget',auth,studentdetailgetdata);
 

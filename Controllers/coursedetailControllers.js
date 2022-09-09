@@ -70,6 +70,19 @@ const coursedetailpost = async (req,res) => {
   }
 
 
+
+  const coursedetailidfind= async function(req, res){
+    const id = req.params.id;
+      console.log("course id find",id);
+      const sql = "SELECT * FROM course WHERE id = ?";
+      MySQL.query(sql,[id],function (err, result) {
+        if (err) throw err;
+        console.log("update id get");
+        res.send(result);
+      });
+  }
+
+
   const coursedetailupdatedata=  async function(req, res) {
     console.log("My ID IS",req.params.id)
      const mybodydata={
@@ -88,7 +101,7 @@ const coursedetailpost = async (req,res) => {
 
           MySQL.query("SELECT * FROM course WHERE id = ?",[req.params.id], function (err, result1) {
             if (err) throw err;
-            res.send(result1);
+            res.send("successfully update");
           });
         // console.log(result);
         // res.send(result);
@@ -97,4 +110,4 @@ const coursedetailpost = async (req,res) => {
     });
  }
 
-module.exports = {coursedetailpost,coursedetailgetdata,coursedetaildeletedata,coursedetailupdatedata}; 
+module.exports = {coursedetailpost,coursedetailgetdata,coursedetaildeletedata,coursedetailidfind,coursedetailupdatedata}; 
